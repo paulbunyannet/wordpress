@@ -1,0 +1,51 @@
+{
+  "name": "package/site_title",
+  "description": "Site description",
+  "authors": [
+    {
+      "name": "name",
+      "email": "someone@nowhwre.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress",
+        "type": "webroot",
+        "version": "4.2.4",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/WordPress/WordPress/archive/4.2.4.zip"
+        },
+        "require": {
+          "fancyguy/webroot-installer": "1.0.0"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "wordpress": "4.*",
+    "fancyguy/webroot-installer": "1.0.0",
+    "symfony/yaml": "~2.4",
+    "vlucas/phpdotenv": "~1.1@dev"
+  },
+  "require-dev": {},
+  "extra": {
+    "webroot-dir": "public_html/wp",
+    "webroot-package": "wordpress"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "bash install.sh"
+    ],
+    "post-install-cmd": [
+      "bash install.sh"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
